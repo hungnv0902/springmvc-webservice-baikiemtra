@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <a href="/departments">Province list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/delete-department}" th:object="${department}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <input type="text" th:field="*{name}">
+    <input type="submit" value="Delete Department">
+</form>
+</body>
+</html>

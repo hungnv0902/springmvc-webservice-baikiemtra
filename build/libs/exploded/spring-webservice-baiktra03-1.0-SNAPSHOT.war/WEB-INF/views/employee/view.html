@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <a href="/">Customer list</a>
+
+<form>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${employee.id}"></td>
+        </tr>
+        <tr>
+            <td>Birth Date:</td>
+            <td th:text="${#dates.format(employee.birthDate, 'dd-MMM-yyyy')}"></td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td th:text="${employee.address}"></td>
+        </tr>
+        <tr>
+            <td>Salary</td>
+            <td th:text="${employee.salary}"></td>
+        </tr>
+        <tr>
+            <td>Department :</td>
+            <td th:text="${employee.department.name}"></td>
+        </tr>
+        <tr>
+            <td>Avatar:</td>
+            <td>
+                <img width="150px" height="150px" th:src="@{'/images/' + ${employee.avatar}}">
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

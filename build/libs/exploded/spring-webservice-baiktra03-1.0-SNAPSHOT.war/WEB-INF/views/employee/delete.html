@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<p>
+    <a href="/employees">Employee list</a>
+
+<form th:action="@{/delete-employee}" th:object="${employee}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Birth Date:</td>
+            <td><input type="date" th:field="*{birthDate}"/></td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="*{address}"/></td>
+        </tr>
+        <tr>
+            <td>Salary</td>
+            <td><input type="text" th:field="*{salary}"/></td>
+        </tr>
+        <tr>
+            <td>Avatar:</td>
+            <td>
+                <img width="150px" height="150px" th:src="@{'/images/' + ${employee.avatar}}">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Department:</td>
+            <td>
+                <select th:field="*{department}">
+                    <option th:each="p : ${departments}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Delete Employee">
+</form>
+</body>
+</html>
+</body>
+</html>
